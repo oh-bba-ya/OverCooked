@@ -305,6 +305,28 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &873625528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5305584127006011120, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
+  m_PrefabInstance: {fileID: 4524522104602883064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e30ddf5cfad2e445a390b972fbc7bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &877273003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5305584127006011120, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
+  m_PrefabInstance: {fileID: 1188525900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e30ddf5cfad2e445a390b972fbc7bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &982781367
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +548,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5305584127006011120, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
+      propertyPath: testing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305584127006011120, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
       propertyPath: tomatoPrefab
       value: 
       objectReference: {fileID: 284022876556604714, guid: 1ba1c7e0ccfdfc44193bd87ce45b1e14, type: 3}
@@ -533,6 +559,10 @@ PrefabInstance:
       propertyPath: kitchenObjectso
       value: 
       objectReference: {fileID: 11400000, guid: 75efd52d1eb8e4849b3c5aeee009903e, type: 2}
+    - target: {fileID: 5305584127006011120, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
+      propertyPath: secondClearCounter
+      value: 
+      objectReference: {fileID: 873625528}
     - target: {fileID: 9156716453621519152, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.934
@@ -713,9 +743,17 @@ PrefabInstance:
       value: ClearCounter
       objectReference: {fileID: 0}
     - target: {fileID: 5305584127006011120, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
+      propertyPath: testing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305584127006011120, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
       propertyPath: kitchenObjectso
       value: 
       objectReference: {fileID: 11400000, guid: 65060f2362d88bf478ec92b7a9fbed79, type: 2}
+    - target: {fileID: 5305584127006011120, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
+      propertyPath: secondClearCounter
+      value: 
+      objectReference: {fileID: 877273003}
     - target: {fileID: 9156716453621519152, guid: beb3994883f2632408eb0b25445a51d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.94
