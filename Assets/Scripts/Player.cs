@@ -14,7 +14,7 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
     public event EventHandler<OnSelectedCounterChangedEvenetArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEvenetArgs : EventArgs
     {
-        public ClearCounter selectedCounter;
+        public BaseCounter selectedCounter;
     }
 
     [SerializeField] private float moveSpeed = 7f;
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
 
     private Vector3 lastInteractDir;
 
-    private ClearCounter selectedCounter;
+    private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
 
     private void Awake()
@@ -86,11 +86,11 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
         {
             // 오브젝트 Tag 사용을 피하자
             // Tag 는 string 으로 구분해야하기 때문에 에러 찾기가 쉽지 않다.
-            if(raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            if(raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
-                if(clearCounter != selectedCounter)
+                if(baseCounter != selectedCounter)
                 {
-                    SetSelectedCounter(clearCounter);
+                    SetSelectedCounter(baseCounter);
                 }
             }
             else
@@ -167,7 +167,7 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
     }
 
 
-    private void SetSelectedCounter(ClearCounter selectedCounter)
+    private void SetSelectedCounter(BaseCounter selectedCounter)
     {
         this.selectedCounter = selectedCounter;
 
