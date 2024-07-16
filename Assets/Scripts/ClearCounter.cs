@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ClearCounter : MonoBehaviour
 {
-    [SerializeField] private Transform tomatoPrefab;
+    [SerializeField] private KitchenObjectSO kitchenObjectso;
     [SerializeField] private Transform counterTopPoint;
 
     public void Interact()
     {
-        Transform tomatoTransform = Instantiate(tomatoPrefab, counterTopPoint);
-        tomatoTransform.localPosition = Vector3.zero;
+        Transform kitchenTransform = Instantiate(kitchenObjectso.prefab, counterTopPoint);
+        kitchenTransform.localPosition = Vector3.zero;
     }
 }

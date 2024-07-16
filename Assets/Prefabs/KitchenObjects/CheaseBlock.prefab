@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 284022876556604714}
+  - component: {fileID: -4861799031827663498}
   m_Layer: 0
   m_Name: CheaseBlock
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 2383070923822065605}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4861799031827663498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621353986346217308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e964d63b7f0d00248a4de9095a54db38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kitchenObjectso: {fileID: 11400000, guid: 65060f2362d88bf478ec92b7a9fbed79, type: 2}
 --- !u!1001 &1583104785047974213
 PrefabInstance:
   m_ObjectHideFlags: 0
