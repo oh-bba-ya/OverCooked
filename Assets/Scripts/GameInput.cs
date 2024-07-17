@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class GameInput : MonoBehaviour
 {
     public event EventHandler OnInterAction;
+    public event EventHandler OnInteractAlternate;
     private PlayerInputActions playerInputActions;
 
     private void Awake()
@@ -18,6 +19,12 @@ public class GameInput : MonoBehaviour
 
         // Input Action Controller에서 설정한 interact 키를 누른 후 실행 완료..
         playerInputActions.Player.Interact.performed += Interact_performed;
+        playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
+    }
+
+    private void InteractAlternate_performed(InputAction.CallbackContext obj)
+    {
+        OnInteractAlternate?.Invoke(this,EventArgs.Empty);
     }
 
     // InputAction.CallbackContext <- 파라미터가 있어야 이벤트 등록 됌

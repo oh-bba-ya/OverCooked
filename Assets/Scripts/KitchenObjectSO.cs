@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(fileName = "KitchenObject Data", menuName ="Scriptable Ojbect/Kitchen Data", order = int.MaxValue)]
+[CreateAssetMenu(fileName = "KitchenObject Data", menuName = "Scriptable Object/Kitchen Data", order = int.MaxValue)]
 public class KitchenObjectSO : ScriptableObject
 {
     public Transform prefab;
