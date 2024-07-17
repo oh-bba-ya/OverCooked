@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Chease-CheaseSlices
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 65060f2362d88bf478ec92b7a9fbed79, type: 2}
-  output: {fileID: 11400000, guid: 5ef5b29374bb76e4b822734767eadf9d, type: 2}
+  output: {fileID: 11400000, guid: 8c194ae2751252a4882ea303b9874d37, type: 2}
+  cuttingProgressMax: 3
