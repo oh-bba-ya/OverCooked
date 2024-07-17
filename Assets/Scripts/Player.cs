@@ -115,7 +115,7 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
         float playerRadius = .7f;
         float playerHeight = 2f;
         // 물체 충돌 감지시 이동 불가
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+        bool canMove = moveDir.x !=0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
 
 
@@ -138,7 +138,7 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
 
                 // z방향으로 움직이려 한다면..
                 Vector3 moveDirZ = new Vector3(0f, 0f, moveDir.z).normalized;   // 정규화, 물체 충돌시 느려짐 방지
-                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+                canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
 
 
                 // Z 방향으로 움직일 수 있다면..
