@@ -10,7 +10,7 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
         get; private set;
     }
 
-
+    public event EventHandler OnPickedSomething;  // 사운드 이벤트
     public event EventHandler<OnSelectedCounterChangedEvenetArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEvenetArgs : EventArgs
     {
@@ -47,6 +47,8 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
     {
+        if (!OverCookGameManager.Instance.IsGamePlaying()) return;
+
         if (selectedCounter != null)
         {
             selectedCounter.InteractAlternate(this);
@@ -55,7 +57,9 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
 
     private void GameInput_OnInteractAction(object sender, EventArgs e)
     {
-        if(selectedCounter != null)
+        if (!OverCookGameManager.Instance.IsGamePlaying()) return;
+
+        if (selectedCounter != null)
         {
             selectedCounter.Interact(this);
         }
@@ -194,6 +198,11 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
     public void SetKitchenObject(KitchenObject kitchenObject)
     {
         this.kitchenObject = kitchenObject;
+
+        if(kitchenObject != null)
+        {
+            OnPickedSomething?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public KitchenObject GetKitchenObject()

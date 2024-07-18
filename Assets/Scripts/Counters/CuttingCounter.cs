@@ -6,11 +6,14 @@ using UnityEngine;
 
 public class CuttingCounter : BaseCounter , IHasProgress
 {
+
+    public static event EventHandler OnAnyCut;   // 사운드
+
     // 프로그레스바 이벤트
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
     // 컷팅 애니메이션 이벤트
-    public event EventHandler OnCut;
+    public event EventHandler OnCut;   // 애니메이션
 
 
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeArray;
@@ -86,6 +89,9 @@ public class CuttingCounter : BaseCounter , IHasProgress
 
             // 애니메이션 이벤트 
             OnCut?.Invoke(this, EventArgs.Empty);
+
+            // 사운드 이벤트
+            OnAnyCut?.Invoke(this, EventArgs.Empty);
 
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 

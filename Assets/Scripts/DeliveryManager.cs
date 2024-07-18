@@ -7,7 +7,8 @@ public class DeliveryManager : MonoBehaviour
 {
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeComplete;
-
+    public event EventHandler OnRecipeSuccess;
+    public event EventHandler OnRecipeFailed;
 
     public static DeliveryManager Instance { get; private set; }
     [SerializeField] private RecipeListSO recipeListSO;
@@ -85,13 +86,15 @@ public class DeliveryManager : MonoBehaviour
                     waitingRecipeSOList.RemoveAt(i);
 
                     OnRecipeComplete?.Invoke(this,EventArgs.Empty);
+
+                    OnRecipeSuccess?.Invoke(this,EventArgs.Empty);
                     return;
                 }
             }
         }
 
         //  플레이어가 접시에 담은 음식이 대기중인 음식과 다름..
-
+        OnRecipeFailed?.Invoke(this,EventArgs.Empty);
     }
 
 
