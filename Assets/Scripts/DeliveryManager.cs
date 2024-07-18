@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
+    public event EventHandler OnRecipeSpawned;
+    public event EventHandler OnRecipeComplete;
+
+
     public static DeliveryManager Instance { get; private set; }
     [SerializeField] private RecipeListSO recipeListSO;
     private List<RecipeSO> waitingRecipeSOList;
@@ -32,9 +37,11 @@ public class DeliveryManager : MonoBehaviour
             // 현재 대기하고 있는 주문량이 Max보다 작다면..
             if(waitingRecipeSOList.Count < waitingRecipesMax)
             {
-                RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[Random.Range(0, recipeListSO.recipeSOList.Count)];
-                Debug.Log(waitingRecipeSO.recipeName);
+                RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
+
                 waitingRecipeSOList.Add(waitingRecipeSO);
+
+                OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
         }
     }
@@ -76,13 +83,20 @@ public class DeliveryManager : MonoBehaviour
                 {
                     // 현재 대기중인 주문 삭제..
                     waitingRecipeSOList.RemoveAt(i);
-                    Debug.Log("주문일치");
+
+                    OnRecipeComplete?.Invoke(this,EventArgs.Empty);
                     return;
                 }
             }
         }
 
         //  플레이어가 접시에 담은 음식이 대기중인 음식과 다름..
-        Debug.Log("주문 불일치");
+
+    }
+
+
+    public List<RecipeSO> GetWaitingRecipeSOList()
+    {
+        return waitingRecipeSOList;
     }
 }
