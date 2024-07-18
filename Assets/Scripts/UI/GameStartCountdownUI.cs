@@ -29,7 +29,7 @@ public class GameStartCountdownUI : MonoBehaviour
 
     private void Update()
     {
-        countdownText.text = OverCookGameManager.Instance.GetCountdownToStartTimer().ToString("#.##");
+        countdownText.text = Mathf.Ceil(OverCookGameManager.Instance.GetCountdownToStartTimer()).ToString();
     }
 
     private void Hide()
