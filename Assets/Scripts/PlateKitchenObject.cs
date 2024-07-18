@@ -14,7 +14,7 @@ public class PlateKitchenObject : KitchenObject
 
     [SerializeField] private List<KitchenObjectSO> validKitchenObjectSOList;  // 접시에 올릴 수 있는 재료 리스트..
 
-    private List<KitchenObjectSO> kitchenObjectSOList;
+    private List<KitchenObjectSO> kitchenObjectSOList;  // 현재 접시에 존재하는 오브젝트 리스트..
 
     private void Awake()
     {
@@ -45,5 +45,10 @@ public class PlateKitchenObject : KitchenObject
             return true;
         }
 
+    }
+
+    public List<KitchenObjectSO> GetKitchenObjectSOList()
+    {
+        return kitchenObjectSOList;
     }
 }
