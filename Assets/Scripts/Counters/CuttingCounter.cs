@@ -56,7 +56,17 @@ public class CuttingCounter : BaseCounter , IHasProgress
             // 플레이어가 오브젝트를 소유하고 있다면..
             if (player.HasKitchenObject())
             {
+                // 접시 클래스로 형변환이 가능하다면.. PlateKitchenObject 클래스로 반환..
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
 
+                    // 접시에 오브젝트를 놓을 수 있다면..
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        // 오브젝트 삭제..
+                        GetKitchenObject().DestroySelf();
+                    }
+                }
             }
             else // 플레이어가 오브젝트를 소유하고 있지 않다면..
             {
