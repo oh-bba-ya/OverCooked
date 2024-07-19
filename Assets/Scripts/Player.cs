@@ -121,6 +121,8 @@ public class Player : MonoBehaviour ,IKitchenObjectParent
 
     private void HandleMovement()
     {
+        if (!OverCookGameManager.Instance.IsGamePlaying()) return;
+
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
