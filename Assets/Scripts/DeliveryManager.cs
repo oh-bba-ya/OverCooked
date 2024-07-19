@@ -18,6 +18,7 @@ public class DeliveryManager : MonoBehaviour
     private float spawnRecipeTimer;   
     private float spawnRecipeTimerMax = 4f; // 주문 쿨타임..
     private int waitingRecipesMax = 4;   // 최대 웨이팅 주문 개수
+    private int successfulRecipesAmount;   // 주문 성공 개수..
 
 
     private void Awake()
@@ -82,6 +83,9 @@ public class DeliveryManager : MonoBehaviour
                 // 플레이어가 접시에 담은 재료와 일치..
                 if (plateContentsMatchesRecipe)
                 {
+                    // 주문 완성 개수 카운트 증가..
+                    successfulRecipesAmount++;
+
                     // 현재 대기중인 주문 삭제..
                     waitingRecipeSOList.RemoveAt(i);
 
@@ -101,5 +105,10 @@ public class DeliveryManager : MonoBehaviour
     public List<RecipeSO> GetWaitingRecipeSOList()
     {
         return waitingRecipeSOList;
+    }
+
+    public int GetSuccessfulRecipesAmount()
+    {
+        return successfulRecipesAmount;
     }
 }
