@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class SoundManger : MonoBehaviour
 {
+
+    private const string PLAYER_PREFS_SOUNDEFFECT_VOLUME = "SoundEffectsVolume";
+
     [SerializeField] private AudioClipRefsSO audioClipRefsSO;
 
     public static SoundManger Instance { get; private set; }
 
+
+    private float volume = 1;
+
     private void Awake()
     {
         Instance = this;
+
+        volume = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUNDEFFECT_VOLUME, 1f);
     }
     private void Start()
     {
@@ -65,14 +73,30 @@ public class SoundManger : MonoBehaviour
         PlaySound(audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], position, volume);
     }
 
-    private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 0.8f)
+    private void PlaySound(AudioClip audioClip, Vector3 position, float volumeMultiplier = 0.8f)
     {
-        AudioSource.PlayClipAtPoint(audioClip, position, volume);
+        AudioSource.PlayClipAtPoint(audioClip, position, volumeMultiplier * volume);
     }
 
     public void PlayFootStepSound(Vector3 position, float volume = 1f)
     {
         PlaySound(audioClipRefsSO.footstep, position, volume);
+    }
+
+    public  void ChangeVolume()
+    {
+        volume += .1f;
+        if(volume > 1f)
+        {
+            volume = 0f;
+        }
+
+        PlayerPrefs.SetFloat(PLAYER_PREFS_SOUNDEFFECT_VOLUME, volume);
+        PlayerPrefs.Save();
+    }
+
+    public float GetVolume() {
+        return volume;
     }
 
 }

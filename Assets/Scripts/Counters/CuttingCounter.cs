@@ -9,7 +9,7 @@ public class CuttingCounter : BaseCounter , IHasProgress
 
     public static event EventHandler OnAnyCut;   // »ç¿îµå
 
-    public static void ResetStaticData()
+    new public static void ResetStaticData()
     {
         OnAnyCut = null;
     }
