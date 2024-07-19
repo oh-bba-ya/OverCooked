@@ -8,6 +8,11 @@ public class BaseCounter : MonoBehaviour,IKitchenObjectParent
 
     public static event EventHandler OnAnyObjectPlacedHere; // 사운드 이벤트
 
+    public static void ResetStaticData()
+    {
+        OnAnyObjectPlacedHere = null;
+    }
+
     [SerializeField] private Transform counterTopPoint;
 
 

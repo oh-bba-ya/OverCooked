@@ -9,6 +9,11 @@ public class CuttingCounter : BaseCounter , IHasProgress
 
     public static event EventHandler OnAnyCut;   // 사운드
 
+    public static void ResetStaticData()
+    {
+        OnAnyCut = null;
+    }
+
     // 프로그레스바 이벤트
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
