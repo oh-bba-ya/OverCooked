@@ -4648,6 +4648,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5313476315463406080, guid: 4838242fc2dc81b45badca2ef83a86a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313476315463406080, guid: 4838242fc2dc81b45badca2ef83a86a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313476315463406080, guid: 4838242fc2dc81b45badca2ef83a86a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 8277805537828214321, guid: 4838242fc2dc81b45badca2ef83a86a2, type: 3}
       propertyPath: m_Name
       value: DeliveryCounter
