@@ -24,7 +24,7 @@ public class PlayerSounds : MonoBehaviour
             {
                 float volume = 1f;
 
-                SoundManger.Instance.PlayFootStepSound(player.transform.position,volume);
+                SoundManager.Instance.PlayFootStepSound(player.transform.position,volume);
             }
 
         }

@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManger : MonoBehaviour
+public class SoundManager : MonoBehaviour
 {
 
     private const string PLAYER_PREFS_SOUNDEFFECT_VOLUME = "SoundEffectsVolume";
 
     [SerializeField] private AudioClipRefsSO audioClipRefsSO;
 
-    public static SoundManger Instance { get; private set; }
+    public static SoundManager Instance { get; private set; }
 
 
     private float volume = 1;
@@ -26,7 +26,7 @@ public class SoundManger : MonoBehaviour
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
         CuttingCounter.OnAnyCut += CuttingCounter_OnAnyCut;
-        Player.Instance.OnPickedSomething += Player_OnPickedSomething;
+        //Player.Instance.OnPickedSomething += Player_OnPickedSomething;
         BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
         TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
     }
@@ -45,7 +45,7 @@ public class SoundManger : MonoBehaviour
 
     private void Player_OnPickedSomething(object sender, EventArgs e)
     {
-        PlaySound(audioClipRefsSO.objectPickup, Player.Instance.transform.position);
+        //PlaySound(audioClipRefsSO.objectPickup, Player.Instance.transform.position);
     }
 
     private void CuttingCounter_OnAnyCut(object sender, EventArgs e)
