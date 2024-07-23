@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class BaseCounter : MonoBehaviour,IKitchenObjectParent
+public class BaseCounter : NetworkBehaviour,IKitchenObjectParent
 {
 
     public static event EventHandler OnAnyObjectPlacedHere; // 사운드 이벤트
@@ -55,6 +55,6 @@ public class BaseCounter : MonoBehaviour,IKitchenObjectParent
     }
     public NetworkObject GetNetworkObject()
     {
-        return null;
+        return NetworkObject;
     }
 }

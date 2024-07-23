@@ -16,8 +16,9 @@ public class PlateKitchenObject : KitchenObject
 
     private List<KitchenObjectSO> kitchenObjectSOList;  // 현재 접시에 존재하는 오브젝트 리스트..
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         kitchenObjectSOList = new List<KitchenObjectSO>();
     }
 
