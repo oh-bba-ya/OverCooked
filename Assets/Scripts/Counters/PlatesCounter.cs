@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class PlatesCounter : BaseCounter
@@ -15,20 +16,36 @@ public class PlatesCounter : BaseCounter
     private int platesSpawnedAmount;
     private int platesSpawnedAmountMax = 4;
 
+
+
     private void Update()
     {
+        if(!IsServer) return;
+
         spawnPlateTimer += Time.deltaTime;
-        if(spawnPlateTimer > spawnPlateTimerMax)
+        if (spawnPlateTimer > spawnPlateTimerMax)
         {
             spawnPlateTimer = 0f;
 
-            if(platesSpawnedAmount < platesSpawnedAmountMax)
+            if (platesSpawnedAmount < platesSpawnedAmountMax)
             {
-                platesSpawnedAmount++;
-
-                OnPlateSpawned?.Invoke(this, EventArgs.Empty);
+                SpawnPlateServerRpc();
             }
         }
+    }
+
+    [ServerRpc]
+    private void SpawnPlateServerRpc()
+    {
+        SpawnPlateClientRpc();
+    }
+
+    [ClientRpc]
+    private void SpawnPlateClientRpc()
+    {
+        platesSpawnedAmount++;
+
+        OnPlateSpawned?.Invoke(this, EventArgs.Empty);
     }
 
     public override void Interact(Player player)
@@ -39,14 +56,27 @@ public class PlatesCounter : BaseCounter
             // 접시가 존재한다면..
             if(platesSpawnedAmount > 0)
             {
-                // 접시 한개 감소..
-                platesSpawnedAmount--;
-
                 // 플레이어 접시 할당..
                 KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, player);
 
-                OnPlateRemoved?.Invoke(this, EventArgs.Empty);
+                InteractLoginServerRpc();
             }
         }
+    }
+
+
+    [ServerRpc(RequireOwnership = false)]
+    private void InteractLoginServerRpc()
+    {
+        InteractLogicClientRpc();
+    }
+
+    [ClientRpc]
+    private void InteractLogicClientRpc()
+    {
+        // 접시 한개 감소..
+        platesSpawnedAmount--;
+
+        OnPlateRemoved?.Invoke(this, EventArgs.Empty);
     }
 }
