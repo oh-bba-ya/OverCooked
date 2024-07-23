@@ -50,7 +50,6 @@ public class CuttingCounter : BaseCounter , IHasProgress
             }
             else // 플레이어가 소유하고 있지 않다면..
             {
-                // 오브젝트 Pick up
 
 
             }
@@ -68,7 +67,7 @@ public class CuttingCounter : BaseCounter , IHasProgress
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
                     {
                         // 오브젝트 삭제..
-                        GetKitchenObject().DestroySelf();
+                        KitchenObject.DestroyKitchenObject(GetKitchenObject());
                     }
                 }
             }
@@ -96,7 +95,7 @@ public class CuttingCounter : BaseCounter , IHasProgress
         OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
         {
             progressNormalized = 0f
-        }) ;
+        });
     }
 
 
