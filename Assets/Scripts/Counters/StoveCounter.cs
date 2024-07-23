@@ -114,7 +114,7 @@ public class StoveCounter : BaseCounter, IHasProgress
                         burningTimer.Value = 0f;
 
                         SetBurningRecipeSOClientRpc(
-                            KitchenGameMultiplayer.Instance.GetKitchenOjbectSOIndex(GetKitchenObject().GetKitchenObjectSO())
+                            KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(GetKitchenObject().GetKitchenObjectSO())
                         );
 
                     }
@@ -159,7 +159,7 @@ public class StoveCounter : BaseCounter, IHasProgress
                     kitchenObject.SetKitchenObjectParent(this);
 
                     InteractLogicPlaceObjectOnCounterServerRpc(
-                        KitchenGameMultiplayer.Instance.GetKitchenOjbectSOIndex(kitchenObject.GetKitchenObjectSO())
+                        KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(kitchenObject.GetKitchenObjectSO())
                         );
 
                 }
@@ -221,18 +221,18 @@ public class StoveCounter : BaseCounter, IHasProgress
     [ClientRpc]
     private void SetFryingRecipeSOClientRpc(int kitchenObjectSOIndex)
     {
-        KitchenObjectSO kitchenObjectSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOfromIndex(kitchenObjectSOIndex);
+        KitchenObjectSO kitchenObjectSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
 
-        fryingRecipeSO = GetFryingRecipeSOWithInput(kitchenObject.GetKitchenObjectSO());
+        fryingRecipeSO = GetFryingRecipeSOWithInput(kitchenObjectSO);
 
     }
 
     [ClientRpc]
     private void SetBurningRecipeSOClientRpc(int kitchenObjectSOIndex)
     {
-        KitchenObjectSO kitchenObjectSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOfromIndex(kitchenObjectSOIndex);
+        KitchenObjectSO kitchenObjectSO = KitchenGameMultiplayer.Instance.GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
 
-        burningRecipeSO = GetBurningRecipeSOWithInput(kitchenObject.GetKitchenObjectSO());
+        burningRecipeSO = GetBurningRecipeSOWithInput(kitchenObjectSO);
 
     }
 
