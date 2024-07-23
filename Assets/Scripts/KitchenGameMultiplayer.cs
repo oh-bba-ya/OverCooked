@@ -19,14 +19,14 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
     public void SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
     {
-        SpawnKitchenObjectServerRpc(GetKitchenOjbectSOIndex(kitchenObjectSO), kitchenObjectParent.GetNetworkObject());
+        SpawnKitchenObjectServerRpc(GetKitchenObjectSOIndex(kitchenObjectSO), kitchenObjectParent.GetNetworkObject());
     }
 
     
     [ServerRpc(RequireOwnership = false)]
     private void SpawnKitchenObjectServerRpc(int  kitchenObjectSOIndex, NetworkObjectReference kitchenObjectParentNetworkObjectReference)
     {
-        KitchenObjectSO kitchenObjectSO = GetKitchenObjectSOfromIndex(kitchenObjectSOIndex);
+        KitchenObjectSO kitchenObjectSO = GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
 
         Transform kitchenTransform = Instantiate(kitchenObjectSO.prefab);
 
@@ -42,12 +42,12 @@ public class KitchenGameMultiplayer : NetworkBehaviour
         kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
     }
 
-    public int GetKitchenOjbectSOIndex(KitchenObjectSO kitchenObjectSO)
+    public int GetKitchenObjectSOIndex(KitchenObjectSO kitchenObjectSO)
     {
         return kitchenObjectListSO.kitchenObjectSOList.IndexOf(kitchenObjectSO);
     }
 
-    public KitchenObjectSO GetKitchenObjectSOfromIndex(int kitchenObjectSOIndex)
+    public KitchenObjectSO GetKitchenObjectSOFromIndex(int kitchenObjectSOIndex)
     {
         return kitchenObjectListSO.kitchenObjectSOList[kitchenObjectSOIndex];
     }
