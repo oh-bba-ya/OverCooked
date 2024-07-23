@@ -8,28 +8,53 @@ public class KitchenObject : NetworkBehaviour
     [SerializeField] private KitchenObjectSO kitchenObjectso;
 
     private IKitchenObjectParent kitchenObjectParent;
+    private FollowTransform followTransform;
+
+
+    private void Awake()
+    {
+        followTransform = GetComponent<FollowTransform>();
+    }
+
     public KitchenObjectSO GetKitchenObjectSO()
     {
         return kitchenObjectso;
     }
 
+
     public void SetKitchenObjectParent(IKitchenObjectParent kitchenObjectParent)
     {
-        if(this.kitchenObjectParent != null)
+        SetKitchenObjectParentServerRpc(kitchenObjectParent.GetNetworkObject());
+    }
+
+
+    [ServerRpc(RequireOwnership = false)]
+    private void SetKitchenObjectParentServerRpc(NetworkObjectReference kitchenObjectParentNetworkObjectReference)
+    {
+        SetKitchenObjectParentClientRpc(kitchenObjectParentNetworkObjectReference);
+    }
+
+    [ClientRpc]
+    private void SetKitchenObjectParentClientRpc(NetworkObjectReference kitchenObjectParentNetworkObjectReference)
+    {
+        kitchenObjectParentNetworkObjectReference.TryGet(out NetworkObject kitchenObjectParentNetworkObject);
+        IKitchenObjectParent kitchenObjectParent = kitchenObjectParentNetworkObject.GetComponent<IKitchenObjectParent>();
+
+        if (this.kitchenObjectParent != null)
         {
             this.kitchenObjectParent.ClearKitchenObject();
         }
 
         this.kitchenObjectParent = kitchenObjectParent;
 
-        if(kitchenObjectParent.HasKitchenObject())
+        if (kitchenObjectParent.HasKitchenObject())
         {
             Debug.LogError("카운터 클래스에 이미 오브젝트가 존재합니다.");
         }
         kitchenObjectParent.SetKitchenObject(this);
 
-        //transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
-        //transform.localPosition = Vector3.zero;
+
+        followTransform.SetTargetTransform(kitchenObjectParent.GetKitchenObjectFollowTransform());
     }
 
     public IKitchenObjectParent GetKitchenObjectParent()
