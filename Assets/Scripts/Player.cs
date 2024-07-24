@@ -28,7 +28,9 @@ public class Player : NetworkBehaviour ,IKitchenObjectParent
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask counterLayerMask;
+    [SerializeField] private LayerMask CollisionLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
+    [SerializeField] private List<Vector3> spawnPositionList;
 
     private bool isWalking;
 
@@ -50,6 +52,9 @@ public class Player : NetworkBehaviour ,IKitchenObjectParent
         {
             LocalInstance = this;
         }
+
+        transform.position = spawnPositionList[(int)OwnerClientId];
+
 
         OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
 
@@ -141,7 +146,7 @@ public class Player : NetworkBehaviour ,IKitchenObjectParent
         float playerRadius = .7f;
         float playerHeight = 2f;
         // 물체 충돌 감지시 이동 불가
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+        bool canMove = !Physics.BoxCast(transform.position, Vector3.one * playerRadius,  moveDir,Quaternion.identity, moveDistance, CollisionLayerMask);
 
 
 
@@ -152,7 +157,7 @@ public class Player : NetworkBehaviour ,IKitchenObjectParent
 
             // x 방향으로 움직이려하면..
             Vector3 moveDirX = new Vector3(moveDir.x, 0f, 0f).normalized; // 정규화, 물체 충돌시 느려짐 방지
-            canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+            canMove = moveDir.x != 0 && !Physics.BoxCast(transform.position, Vector3.one * playerRadius, moveDirX,Quaternion.identity, moveDistance, CollisionLayerMask);
 
             // x방향으로 움직일 수 있다면..
             if (canMove)
@@ -164,7 +169,7 @@ public class Player : NetworkBehaviour ,IKitchenObjectParent
 
                 // z방향으로 움직이려 한다면..
                 Vector3 moveDirZ = new Vector3(0f, 0f, moveDir.z).normalized;   // 정규화, 물체 충돌시 느려짐 방지
-                canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+                canMove = moveDir.z != 0 && !Physics.BoxCast(transform.position, Vector3.one * playerRadius, moveDirZ, Quaternion.identity, moveDistance, CollisionLayerMask);
 
 
                 // Z 방향으로 움직일 수 있다면..
