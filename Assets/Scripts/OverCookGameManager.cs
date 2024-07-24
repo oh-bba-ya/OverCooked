@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OverCookGameManager : NetworkBehaviour
 {
@@ -26,6 +27,8 @@ public class OverCookGameManager : NetworkBehaviour
         GamePlaying,
         GameOver,
     }
+
+    [SerializeField] private Transform playerPrefab;
 
     private NetworkVariable<State> state = new NetworkVariable<State>(State.WaitingToStart);
     private bool isLocalPlayerReady;
@@ -61,10 +64,23 @@ public class OverCookGameManager : NetworkBehaviour
         {
             // 플레이어가 게임과의 연결이 끊겼을 때의 이벤트
             NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
+
+            // 씬 Load 완료후 호출되는 이벤트
+            NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
         }
     }
 
-    private void NetworkManager_OnClientDisconnectCallback(ulong obj)
+    private void SceneManager_OnLoadEventCompleted(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    {
+        foreach(ulong clietId in NetworkManager.Singleton.ConnectedClientsIds)
+        {
+            // 캐릭터 생성..
+            Transform playerTransform = Instantiate(playerPrefab);
+            playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clietId, true);
+        }
+    }
+
+    private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
     {
         // 연결이 끊긴 플레이어가 일시정지를 했다면..
         autoTestGamePausedState = true;
