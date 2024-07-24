@@ -41,7 +41,7 @@ public class OptionsUI : MonoBehaviour
 
     private void Start()
     {
-        OverCookGameManager.Instance.OnGameUnPaused += OverCookGameManager_OnGameUnPaused;
+        OverCookGameManager.Instance.OnLocalGameUnPaused += OverCookGameManager_OnGameUnPaused;
 
         UpdateVisual();
 

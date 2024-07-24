@@ -33,18 +33,18 @@ public class GamePauseUI : MonoBehaviour
 
     private void Start()
     {
-        OverCookGameManager.Instance.OnGamePaused += OverCookGameManager_OnGamePaused;
-        OverCookGameManager.Instance.OnGameUnPaused += OverCookGameManager_OnGameUnPaused;
+        OverCookGameManager.Instance.OnLocalGamePaused += OverCookGameManager_OnLocalGamePaused;
+        OverCookGameManager.Instance.OnLocalGameUnPaused += OverCookGameManager_OnLocalGameUnPaused;
 
         Hide();
     }
 
-    private void OverCookGameManager_OnGameUnPaused(object sender, EventArgs e)
+    private void OverCookGameManager_OnLocalGameUnPaused(object sender, EventArgs e)
     {
         Hide();
     }
 
-    private void OverCookGameManager_OnGamePaused(object sender, EventArgs e)
+    private void OverCookGameManager_OnLocalGamePaused(object sender, EventArgs e)
     {
         Show();
     }
