@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
 public class OverCookGameManager : NetworkBehaviour
@@ -36,6 +37,7 @@ public class OverCookGameManager : NetworkBehaviour
     private NetworkVariable<bool> isGamePaused = new NetworkVariable<bool>(false);
     private Dictionary<ulong, bool> playerReadyDictionary;
     private Dictionary<ulong, bool> playerPausedDictionary;
+    private bool autoTestGamePausedState;
 
     private void Awake()
     {
@@ -54,6 +56,18 @@ public class OverCookGameManager : NetworkBehaviour
     {
         state.OnValueChanged += State_OnValueChanged;
         isGamePaused.OnValueChanged += IsGamePaused_OnValueChanged;
+
+        if(IsServer)
+        {
+            // 플레이어가 게임과의 연결이 끊겼을 때의 이벤트
+            NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
+        }
+    }
+
+    private void NetworkManager_OnClientDisconnectCallback(ulong obj)
+    {
+        // 연결이 끊긴 플레이어가 일시정지를 했다면..
+        autoTestGamePausedState = true;
     }
 
     private void IsGamePaused_OnValueChanged(bool previousValue, bool newValue)
@@ -122,6 +136,17 @@ public class OverCookGameManager : NetworkBehaviour
             case State.GameOver:
                 break;
 
+        }
+    }
+
+    private void LateUpdate()
+    {
+        // 연결이 끊긴 플레이어가 일시정지를 했다면..
+        if (autoTestGamePausedState)
+        {
+            autoTestGamePausedState = false;
+            // 일시정지 해제..
+            TestGamePausedState();
         }
     }
 

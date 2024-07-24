@@ -58,6 +58,21 @@ public class Player : NetworkBehaviour ,IKitchenObjectParent
 
         OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
 
+        if(IsServer)
+        {
+            // 플레이어가 게임과의 연결이 끊어졌을 경우..
+            NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
+        }
+
+
+    }
+
+    private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
+    {
+        if(clientId == OwnerClientId && HasKitchenObject())
+        {
+            KitchenObject.DestroyKitchenObject(GetKitchenObject());
+        }
     }
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
