@@ -1276,7 +1276,7 @@ GameObject:
   - component: {fileID: 212012709}
   - component: {fileID: 212012710}
   m_Layer: 5
-  m_Name: ConnectionResponseMessageUI
+  m_Name: LobbyMessageUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2027,10 +2027,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1257355442}
-  - {fileID: 212012709}
-  - {fileID: 1645866166}
   - {fileID: 521479415}
   - {fileID: 771052755}
+  - {fileID: 212012709}
+  - {fileID: 1645866166}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
