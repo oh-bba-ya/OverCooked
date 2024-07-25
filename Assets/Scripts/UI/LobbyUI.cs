@@ -80,4 +80,9 @@ public class LobbyUI : MonoBehaviour
             lobbyTransform.GetComponent<LobbyListSingleUI>().SetLobby(lobby); 
         }
     }
+
+    public void OnDestroy()
+    {
+        OverCookGameLobby.Instance.OnLobbyListChanged -= OverCookGameLobby_OnLobbyListChanged;
+    }
 }
