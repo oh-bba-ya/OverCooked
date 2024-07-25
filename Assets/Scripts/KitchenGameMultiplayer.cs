@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class KitchenGameMultiplayer : NetworkBehaviour
 {
 
+
     private const int MAX_PLAYER_AMOUNT = 4;
 
     public static KitchenGameMultiplayer Instance { get; private set; }
@@ -18,6 +19,7 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
 
     [SerializeField] private KitchenObjectListSO kitchenObjectListSO;
+    [SerializeField] private List<Color> playerColorList;
 
     // 플레이어 데이터 저장..
     private NetworkList<PlayerData> playerDataNetworkList;
@@ -49,7 +51,8 @@ public class KitchenGameMultiplayer : NetworkBehaviour
         // 로비에 참여한 플레이어 클라이언트 ID 저장..
         playerDataNetworkList.Add(new PlayerData
         {
-            clientId = clientId
+            clientId = clientId,
+            colorId = GetFirstUnusedColorId()
         });
     }
 
@@ -156,9 +159,100 @@ public class KitchenGameMultiplayer : NetworkBehaviour
         return playerIndex <playerDataNetworkList.Count;
     }
 
+
+    public int GetPlayerDatIndexFromClientId(ulong clientId)
+    {
+        for(int i = 0; i < playerDataNetworkList.Count; i++)
+        {
+            if (playerDataNetworkList[i].clientId == clientId)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public PlayerData GetPlayerDataFromClientId(ulong clientId)
+    {
+        foreach (PlayerData playerData in playerDataNetworkList)
+        {
+            if (playerData.clientId == clientId)
+            {
+                return playerData;
+            }
+        }
+
+        return default;
+    }
+    public PlayerData GetPlayerData()
+    {
+        return GetPlayerDataFromClientId(NetworkManager.Singleton.LocalClientId);
+    }
+
     public PlayerData GetPlayerDataFromPlayerIndex(int playerIndex)
     {
         return playerDataNetworkList[playerIndex];
     }
     
+    public Color GetPlayerColor(int colorId)
+    {
+        return playerColorList[colorId];
+    }
+
+    public void ChangePlayerColor(int colorId)
+    {
+        ChangePlayerColorServerRpc(colorId);
+    }
+
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ChangePlayerColorServerRpc(int colorId, ServerRpcParams serverRpcParams = default)
+    {
+        // 다른 캐릭터가 사용중인 Color라면..
+        if(!IsColorAvailable(colorId))
+        {
+            return;
+        }
+
+        int playerDataIndex = GetPlayerDatIndexFromClientId(serverRpcParams.Receive.SenderClientId);
+
+        PlayerData playerData = playerDataNetworkList[playerDataIndex];
+
+        playerData.colorId = colorId;
+        playerDataNetworkList[playerDataIndex] = playerData;
+
+
+    }
+
+    /// <summary>
+    /// 모든 플레이어 중 Param 으로 전달된 컬러가 사용중인지 체크..
+    /// </summary>
+    /// <param name="colorId"> 선택한 컬러</param>
+    /// <returns> 사용중인 색이라면 false, 사용하는 캐릭터가 없다면 true</returns>
+    private bool IsColorAvailable(int colorId)
+    {
+        foreach(PlayerData playerData in playerDataNetworkList)
+        {
+            if(playerData.colorId == colorId)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private int GetFirstUnusedColorId()
+    {
+        for(int i=0; i<playerColorList.Count; i++)
+        {
+            if (IsColorAvailable(i))
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
