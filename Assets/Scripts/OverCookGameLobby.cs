@@ -12,6 +12,7 @@ public class OverCookGameLobby : MonoBehaviour
 
 
     private Lobby joinedLobby;
+    private float heartbeatTimer;
 
 
     private void Awake()
@@ -40,6 +41,36 @@ public class OverCookGameLobby : MonoBehaviour
 
         }
 
+    }
+
+    private void Update()
+    {
+        HandleHeartbeat();
+    }
+
+    /// <summary>
+    /// 유니티 로비시스템의 경우 로비 생성 후 주기적으로 신호를 보내지 않으면 로비가 삭제 처리됌..
+    /// 최대 30초 이내로 신호를 주기적으로 보내야함
+    /// </summary>
+    private void HandleHeartbeat()
+    {
+        if(IsLobbyHost())
+        {
+            heartbeatTimer -= Time.deltaTime;
+            if(heartbeatTimer <= 0f)
+            {
+                float heartbeatTimerMax = 15f;
+                heartbeatTimer = heartbeatTimerMax;
+
+                // SendHeartbeatPingAsync()를 통해 생성한 로비 유지..
+                LobbyService.Instance.SendHeartbeatPingAsync(joinedLobby.Id);
+            }
+        }
+    }
+
+    private bool IsLobbyHost()
+    {
+        return joinedLobby != null && joinedLobby.HostId == AuthenticationService.Instance.PlayerId;
     }
 
     public async void CreateLobby(string lobbyName, bool isPrivate)
