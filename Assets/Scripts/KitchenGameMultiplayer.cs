@@ -155,5 +155,10 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     {
         return playerIndex <playerDataNetworkList.Count;
     }
+
+    public PlayerData GetPlayerDataFromPlayerIndex(int playerIndex)
+    {
+        return playerDataNetworkList[playerIndex];
+    }
     
 }
