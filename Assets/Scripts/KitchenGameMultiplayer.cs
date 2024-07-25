@@ -43,7 +43,24 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     {
         NetworkManager.Singleton.ConnectionApprovalCallback += NetworkManager_ConnectionApprovalCallback;
         NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientConnectedCallback;  // 플레이어가 연결되면 호출..
+        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Server_OnClientDisconnectCallback;
         NetworkManager.Singleton.StartHost();
+    }
+
+    private void NetworkManager_Server_OnClientDisconnectCallback(ulong clientId)
+    {
+        for(int i=0;i<playerDataNetworkList.Count;i++)
+        {
+            PlayerData playerData = playerDataNetworkList[i];
+
+            // 플레이어가 접속을 종료했다면..
+            if(playerData.clientId == clientId)
+            {
+                // 플레이어 삭제..
+                playerDataNetworkList.RemoveAt(i);
+
+            }
+        }
     }
 
     private void NetworkManager_OnClientConnectedCallback(ulong clientId)
@@ -82,11 +99,11 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     {
         OnTryingToJoingGame?.Invoke(this,EventArgs.Empty);
 
-        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
+        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Client_OnClientDisconnectCallback;
         NetworkManager.Singleton.StartClient();
     }
 
-    private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
+    private void NetworkManager_Client_OnClientDisconnectCallback(ulong clientId)
     {
         OnFailedToJoingGame?.Invoke(this,EventArgs.Empty);
     }
@@ -160,7 +177,7 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     }
 
 
-    public int GetPlayerDatIndexFromClientId(ulong clientId)
+    public int GetPlayerDataIndexFromClientId(ulong clientId)
     {
         for(int i = 0; i < playerDataNetworkList.Count; i++)
         {
@@ -215,7 +232,7 @@ public class KitchenGameMultiplayer : NetworkBehaviour
             return;
         }
 
-        int playerDataIndex = GetPlayerDatIndexFromClientId(serverRpcParams.Receive.SenderClientId);
+        int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
 
         PlayerData playerData = playerDataNetworkList[playerDataIndex];
 
@@ -254,5 +271,11 @@ public class KitchenGameMultiplayer : NetworkBehaviour
         }
 
         return -1;
+    }
+
+    public void KickPlayer(ulong clientId)
+    {
+        NetworkManager.Singleton.DisconnectClient(clientId);
+        NetworkManager_Server_OnClientDisconnectCallback(clientId);
     }
 }
