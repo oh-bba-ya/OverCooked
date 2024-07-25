@@ -17,6 +17,7 @@ public class CharacterSelectUI : MonoBehaviour
     {
         mainmenuButton.onClick.AddListener(() =>
         {
+            OverCookGameLobby.Instance.LeaveLobby();
             NetworkManager.Singleton.Shutdown();
             Loader.Load(Loader.Scene.MainMenuScene);
         });
