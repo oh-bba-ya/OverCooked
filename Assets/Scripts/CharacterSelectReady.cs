@@ -46,6 +46,7 @@ public class CharacterSelectReady : NetworkBehaviour
 
         if(allClientsReady)
         {
+            OverCookGameLobby.Instance.DeleteLobby();
             Loader.LoadNetwork(Loader.Scene.GameScene);
         }
     }

@@ -19,6 +19,7 @@ public class LobbyUI : MonoBehaviour
     {
         mainmenuButton.onClick.AddListener(() =>
         {
+            OverCookGameLobby.Instance.LeaveLobby();
             Loader.Load(Loader.Scene.MainMenuScene);
         });
 
