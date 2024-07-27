@@ -55,8 +55,8 @@ public class OptionsUI : MonoBehaviour
 
     void UpdateVisual()
     {
-        soundEffectsText.text = "Sound Effects : " +  Mathf.Round(SoundManager.Instance.GetVolume() * 10f);
-        musicText.text = "Music : " +  Mathf.Round(MusicManager.Instance.GetVolume() * 10f);
+        soundEffectsText.text = "효과음 : " +  Mathf.Round(SoundManager.Instance.GetVolume() * 10f);
+        musicText.text = "배경음악 : " +  Mathf.Round(MusicManager.Instance.GetVolume() * 10f);
     }
 
     public void Show()

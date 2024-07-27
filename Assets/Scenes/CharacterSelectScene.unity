@@ -495,10 +495,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PlayAgain
+  m_text: "\uB2E4\uC2DC\uD558\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4622f64827e7089428186a42b5adf428, type: 2}
+  m_sharedMaterial: {fileID: -9045954266584447017, guid: 4622f64827e7089428186a42b5adf428, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -631,8 +631,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lobby Name : LOBBYNAME'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4622f64827e7089428186a42b5adf428, type: 2}
+  m_sharedMaterial: {fileID: -9045954266584447017, guid: 4622f64827e7089428186a42b5adf428, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -813,10 +813,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAIN MENU
+  m_text: "\uBA54\uC778 \uBA54\uB274"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4622f64827e7089428186a42b5adf428, type: 2}
+  m_sharedMaterial: {fileID: -9045954266584447017, guid: 4622f64827e7089428186a42b5adf428, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -956,6 +956,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2429810398843572904, guid: 22d98d037654ee84593a34119519f3af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4151311585282893894, guid: 22d98d037654ee84593a34119519f3af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 22d98d037654ee84593a34119519f3af, type: 3}
@@ -1867,8 +1870,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lobby Code : ADSS'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4622f64827e7089428186a42b5adf428, type: 2}
+  m_sharedMaterial: {fileID: -9045954266584447017, guid: 4622f64827e7089428186a42b5adf428, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2619,6 +2622,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2429810398843572904, guid: 22d98d037654ee84593a34119519f3af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4151311585282893894, guid: 22d98d037654ee84593a34119519f3af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 22d98d037654ee84593a34119519f3af, type: 3}
 --- !u!1 &1694016427
 GameObject:
@@ -2904,10 +2910,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: READY
+  m_text: "\uC900\uBE44"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4622f64827e7089428186a42b5adf428, type: 2}
+  m_sharedMaterial: {fileID: -9045954266584447017, guid: 4622f64827e7089428186a42b5adf428, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3155,6 +3161,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2429810398843572904, guid: 22d98d037654ee84593a34119519f3af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4151311585282893894, guid: 22d98d037654ee84593a34119519f3af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 22d98d037654ee84593a34119519f3af, type: 3}
 --- !u!1001 &2136591278
 PrefabInstance:
@@ -3362,6 +3371,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2429810398843572904, guid: 22d98d037654ee84593a34119519f3af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4151311585282893894, guid: 22d98d037654ee84593a34119519f3af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 22d98d037654ee84593a34119519f3af, type: 3}
