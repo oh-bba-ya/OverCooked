@@ -122,6 +122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 7856560885864707295, guid: 1fe70e5b8271e074788d69db605e85b3, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 9156716453621519152, guid: 1fe70e5b8271e074788d69db605e85b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -193,10 +197,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711b362c3cf447541ab0331d734bac31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 0}
+  counterTopPoint: {fileID: 6104183971140190654}
 --- !u!4 &5899983522601525352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9156716453621519152, guid: 1fe70e5b8271e074788d69db605e85b3, type: 3}
+  m_PrefabInstance: {fileID: 3383261981179360088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6104183971140190654 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8810633111096685286, guid: 1fe70e5b8271e074788d69db605e85b3, type: 3}
   m_PrefabInstance: {fileID: 3383261981179360088}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4132911144349717763
