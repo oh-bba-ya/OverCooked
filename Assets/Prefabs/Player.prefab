@@ -63,9 +63,9 @@ MonoBehaviour:
   kitchenObjectHoldPoint: {fileID: 4538500285478558604}
   spawnPositionList:
   - {x: -2, y: 0, z: 0}
-  - {x: 2, y: 0, z: 0}
-  - {x: -2, y: 0, z: -2}
-  - {x: 2, y: 0, z: -2}
+  - {x: 2.5, y: 0, z: 0}
+  - {x: -2, y: 0, z: -2.5}
+  - {x: 2.5, y: 0, z: -2.5}
   playerVisual: {fileID: 6014871245282652712}
 --- !u!114 &3133346932052129581
 MonoBehaviour:

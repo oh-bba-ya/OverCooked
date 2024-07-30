@@ -7,6 +7,12 @@ using UnityEngine.EventSystems;
 
 public class CharacterSelectReady : NetworkBehaviour
 {
+    public enum GameScene
+    {
+        GameScene,
+        GameTwoScene,
+    }
+
     public static CharacterSelectReady Instance { get; private set; }
 
 
@@ -14,11 +20,14 @@ public class CharacterSelectReady : NetworkBehaviour
 
     private Dictionary<ulong, bool> playerReadyDictionary;
 
+    public GameScene selectionScene;
+
     private void Awake()
     {
         Instance = this;
 
         playerReadyDictionary = new Dictionary<ulong, bool>();
+        selectionScene = GameScene.GameScene;
     }
 
     public void SetPlayerReady()
@@ -47,7 +56,14 @@ public class CharacterSelectReady : NetworkBehaviour
         if(allClientsReady)
         {
             OverCookGameLobby.Instance.DeleteLobby();
-            Loader.LoadNetwork(Loader.Scene.GameScene);
+            if(selectionScene == GameScene.GameScene)
+            {
+                Loader.LoadNetwork(Loader.Scene.GameScene);
+            }
+            else
+            {
+                Loader.LoadNetwork(Loader.Scene.GameTwoScene);
+            }
         }
     }
 
