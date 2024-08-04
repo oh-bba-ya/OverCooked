@@ -22,11 +22,15 @@ Key|상(위)|좌(왼쪽)|우(오른쪽)|하(아래)|상호작용|재료다듬기
 https://drive.google.com/file/d/10NlND9qw213gi1JD1NoIpFQgyQQ2jdqW/view?usp=sharing  
 
 
-
 ## 게임 설명  
- ![04](https://github.com/user-attachments/assets/830ccf06-6181-4bcd-bc75-c77624d7a088)| 오버쿡 모작 |ㅁㄴㅇ|ㅁㄴㅇ
-:---:|:---:|:---:|:---:
-로비시스템 | 로비생성 | 로비참가 | 로비코드
+ ![04](https://github.com/user-attachments/assets/830ccf06-6181-4bcd-bc75-c77624d7a088)| ![03](https://github.com/user-attachments/assets/e88bd2bc-82f8-41bd-96ac-5e6c87ebd624)
+:---:|:---:
+로비시스템 | 로비생성 
+
+- 로비 생성의 경우 공개 / 비공개 선택 가능
+- 
+
+  
 
 
 
