@@ -23,5 +23,11 @@ https://drive.google.com/file/d/10NlND9qw213gi1JD1NoIpFQgyQQ2jdqW/view?usp=shari
 
 
 
+## 게임 설명  
+ ![04](https://github.com/user-attachments/assets/830ccf06-6181-4bcd-bc75-c77624d7a088)| 오버쿡 모작 |ㅁㄴㅇ|ㅁㄴㅇ
+:---:|:---:|:---:|:---:
+로비시스템 | 로비생성 | 로비참가 | 로비코드
+
+
 
 
