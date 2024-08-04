@@ -39,3 +39,5 @@ Room 생성 | Room| Room 참가 방법
 :---:|:---: 
 
 
+- 게임 규칙
+  왼쪽 상단에 나타는 Recipe Waiting List에 걸맞은 
