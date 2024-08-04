@@ -22,13 +22,14 @@ Key|상(위)|좌(왼쪽)|우(오른쪽)|하(아래)|상호작용|재료다듬기
 https://drive.google.com/file/d/10NlND9qw213gi1JD1NoIpFQgyQQ2jdqW/view?usp=sharing  
 
 
+
 ## 게임 설명  
 - 로비시스템
-- 로비 참가 방법 : 로비 클릭 or 로비 Join Code로 참가
+- 방 참가 방법 : 클릭 or  Join Code 입력
 
-![03](https://github.com/user-attachments/assets/e88bd2bc-82f8-41bd-96ac-5e6c87ebd624) | ![04](https://github.com/user-attachments/assets/830ccf06-6181-4bcd-bc75-c77624d7a088)
-:---:|:---:
-로비생성  | 로비 참가 방법 
+![03](https://github.com/user-attachments/assets/e88bd2bc-82f8-41bd-96ac-5e6c87ebd624)| ![05](https://github.com/user-attachments/assets/190f5a8f-1fc8-441e-8b89-15971beba08c) | ![04](https://github.com/user-attachments/assets/830ccf06-6181-4bcd-bc75-c77624d7a088)
+:---:|:---: |:---:
+Room 생성 | Room| Room 참가 방법  
 
   
 
