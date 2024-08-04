@@ -31,8 +31,11 @@ https://drive.google.com/file/d/10NlND9qw213gi1JD1NoIpFQgyQQ2jdqW/view?usp=shari
 :---:|:---: |:---:
 Room 생성 | Room| Room 참가 방법  
 
-  
 
 
+- 맵
+
+![07](https://github.com/user-attachments/assets/7098dfbe-46d6-4066-a589-33408c526eb7)| ![06](https://github.com/user-attachments/assets/eafee3b7-94c8-4d25-9aac-0b30c41534b0)
+:---:|:---: 
 
 
