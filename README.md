@@ -14,8 +14,12 @@ Key|상(위)|좌(왼쪽)|우(오른쪽)|하(아래)|상호작용|재료다듬기
 :---:|:---:|:---:|:---:|:---:|:---:|:---:  
 키보드|W|A|D|S|E|F
 키보드|⬆️|⬅️|➡️|⬇️|✋|🧑‍🍳
-  
 
+
+
+
+## 게임 영상
+https://drive.google.com/file/d/10NlND9qw213gi1JD1NoIpFQgyQQ2jdqW/view?usp=sharing  
 
 
 
