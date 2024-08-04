@@ -24,6 +24,7 @@ https://drive.google.com/file/d/10NlND9qw213gi1JD1NoIpFQgyQQ2jdqW/view?usp=shari
 
 ## 게임 설명  
 - 로비시스템
+- 로비 참가 방법 : 로비 클릭 or 로비 Join Code로 참가
 
 ![03](https://github.com/user-attachments/assets/e88bd2bc-82f8-41bd-96ac-5e6c87ebd624) | ![04](https://github.com/user-attachments/assets/830ccf06-6181-4bcd-bc75-c77624d7a088)
 :---:|:---:
