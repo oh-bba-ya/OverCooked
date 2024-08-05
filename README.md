@@ -42,7 +42,7 @@ Room 생성 | Room| Room 참가 방법
 - 재료
 - 레시피에 소모되는 재료는 조리를 통해 레시피에 해당하는 재료로 변환될 수 있습니다.
 
-![고기](https://github.com/user-attachments/assets/44c4efcb-a2bb-4f32-bc69-faa8a7bad679)| ![빵](https://github.com/user-attachments/assets/483cec03-6433-4df7-a3b0-e648ab575d99) |![양배추](https://github.com/user-attachments/assets/2eea1624-10e4-44ad-834e-e9820bfd3a8c) | ![치즈](https://github.com/user-attachments/assets/be1f9399-fa2d-43ef-a251-44991c563366) | ![Up![토마토](https://github.com/user-attachments/assets/0ab810ea-c9ef-42d0-a3ba-e06227cc69fd)
+![고기](https://github.com/user-attachments/assets/44c4efcb-a2bb-4f32-bc69-faa8a7bad679)| ![빵](https://github.com/user-attachments/assets/483cec03-6433-4df7-a3b0-e648ab575d99) |![양배추](https://github.com/user-attachments/assets/2eea1624-10e4-44ad-834e-e9820bfd3a8c) | ![치즈](https://github.com/user-attachments/assets/be1f9399-fa2d-43ef-a251-44991c563366) | ![토마토](https://github.com/user-attachments/assets/0ab810ea-c9ef-42d0-a3ba-e06227cc69fd)
 :---:|:---: |:---:|:---:|:---:
 고기| 빵| 양배추 | 치즈 | 토마토  
 
