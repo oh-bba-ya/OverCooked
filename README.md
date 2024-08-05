@@ -32,12 +32,17 @@ https://drive.google.com/file/d/10NlND9qw213gi1JD1NoIpFQgyQQ2jdqW/view?usp=shari
 Room 생성 | Room| Room 참가 방법  
 
   
-  
 - 맵
 
 ![07](https://github.com/user-attachments/assets/7098dfbe-46d6-4066-a589-33408c526eb7)| ![06](https://github.com/user-attachments/assets/eafee3b7-94c8-4d25-9aac-0b30c41534b0)
 :---:|:---: 
 
 
-- 게임 규칙
-  왼쪽 상단에 나타는 Recipe Waiting List에 걸맞은 
+## 게임 규칙
+- Recipe Waiting List에 존재하는 Recipe를 제작하여 Delivery Counter에 완성된 요리 전달
+- Recipe Waiting List에 존재하지 않는 Recipe 또는 재료가 정확하지 않은 요리는 실패로 취급
+
+
+![햄버거-만들기](https://github.com/user-attachments/assets/028583d9-08f4-49fc-bcb3-49d19460b247)|![재료다듬기](https://github.com/user-attachments/assets/b7ddf753-38f1-4f6d-bd8d-b369ad837100)
+:---:|:---: 
+성공 | 실패
