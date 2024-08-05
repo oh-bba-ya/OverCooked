@@ -42,8 +42,8 @@ Room 생성 | Room| Room 참가 방법
 - 레시피에 소모되는 재료는 조리를 통해 레시피에 해당하는 재료로 변환될 수 있습니다.
 
 ![03](https://github.com/user-attachments/assets/e88bd2bc-82f8-41bd-96ac-5e6c87ebd624)| ![05](https://github.com/user-attachments/assets/190f5a8f-1fc8-441e-8b89-15971beba08c) | ![04](https://github.com/user-attachments/assets/830ccf06-6181-4bcd-bc75-c77624d7a088)
-:---:|:---: |:---:
-Room 생성 | Room| Room 참가 방법  
+:---:|:---: |:---:|:---:|:---:
+고기| 빵| 양배추 | 치즈 | 토마토  
 
 
 ## 게임 규칙
